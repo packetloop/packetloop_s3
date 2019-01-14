@@ -1,12 +1,12 @@
 Gem::Specification.new do |s|
-  s.name          = 'logstash-input-packetloop_mys3'
+  s.name          = 'logstash-input-packetloop_s3'
   s.version       = '0.1.0'
   s.licenses      = ['Apache-2.0']
-  s.summary       = 'TODO: Write a short summary, because Rubygems requires one.'
-  s.description   = '{TODO: Write a longer description or delete this line.'
-  s.homepage      = 'TODO: Put your plugin''s website or public repo URL here.'
-  s.authors       = ['Lenfree Yeung']
-  s.email         = 'lenfree.yeung@gmail.com'
+  s.summary       = 'A fork of Logstash S3 input that contains a temporary fix with processing Cloudwatch logs from S3 bucket.'
+  s.description   = 'A fork of Logstash S3 input that contains a temporary fix with processing Cloudwatch logs from S3 bucket until https://github.com/logstash-plugins/logstash-input-s3/issues/165 PR is merged'
+  s.homepage      = 'https://github.com/packetloop/logstash-input-packetloop_s3'
+  s.authors       = ['Mayhem']
+  s.email         = 'mayhem@arbor.net'
   s.require_paths = ['lib']
 
   # Files

@@ -1,8 +1,34 @@
-# Logstash Plugin
+# Logstash Plugin - packetloop_s3
 
-This is a plugin for [Logstash](https://github.com/elastic/logstash).
+This is a fork plugin of S3 input that only reads Cloudwatch logs from S3 for [Logstash](https://github.com/elastic/logstash).
+Unfortunately, Cloudwatch logs is already compressed without .gz extension. With current S3 input plugin, it checks whether
+file is gzip compressed or not by inspecting file extension and therefore umable able to read Cloudwatch logs streamed via
+Firehose or by other means.
+
+This plugin is supposed to be temporary workaround until PR https://github.com/logstash-plugins/logstash-input-s3/issues/165
+is merged. Hence, this does not have tests.
 
 It is fully free and fully open source. The license is Apache 2.0, meaning you are pretty much free to use it however you want in whatever way.
+
+## Usage:
+```bash
+
+ input {
+   packetloop_s3 {
+     access_key_id => "xxx"
+     secret_access_key => "xxx"$
+     region => "us-east-1"
+     delete => true
+     force_gzipp_decompress => true
+     codec => cloudwatch_logs {
+       decompress => false
+     }
+     interval => 30
+     bucket => "bucket"
+     type => "cloudwatch"
+   }
+}
+
 
 ## Documentation
 
